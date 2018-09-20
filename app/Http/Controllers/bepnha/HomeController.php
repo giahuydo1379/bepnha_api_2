@@ -25,12 +25,14 @@ class HomeController extends Controller
 
         $tags = DB::table('tags')
             ->join('tag_video', 'tag_video.tag_id', '=', 'tags.id')
-            ->join('tag_document', 'tag_document.tag_id', '=', 'tags.id')
+            ->Leftjoin('tag_document', 'tag_document.tag_id', '=', 'tags.id')
             ->where('tags.disable', '=', 0)
             ->select('tags.title as tag_name', 'tags.id as tag_id')
             ->orderBy('tags.order_by')
             ->orderBy('tags.date_created')
             ->distinct()->get();
+
+ 
 
         $image = DB::raw('concat("'.env('MEDIA_URL_IMAGE').'/",videos.image_location) as image');
         $imageDocument = DB::raw('concat("'.env('MEDIA_URL_IMAGE').'/",documents.image_location) as imageDoc');
