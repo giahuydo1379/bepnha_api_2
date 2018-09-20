@@ -34,6 +34,7 @@ Route::group(['prefix' => 'api'], function () {
 
 
 		Route::get('/bachkhoa/maincats', 'bepnha\BachKhoaController@maincats');
+		Route::get('/bachkhoa/maincatdocument', 'bepnha\BachKhoaController@maincatDocuments');
         Route::get('/bachkhoa/listcats/{main_cat}', 'bepnha\BachKhoaController@listcats');
         Route::get('/bachkhoa/videos/{main}/{subcat}', 'bepnha\BachKhoaController@getVideos');
         Route::get('/bachkhoa/search/{main}/{subcat}', 'bepnha\BachKhoaController@search');

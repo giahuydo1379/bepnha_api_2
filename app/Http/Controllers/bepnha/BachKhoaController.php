@@ -29,6 +29,23 @@ class BachKhoaController extends Controller
         }
         return $result;
     }
+
+    public function maincatDocuments() {
+        $result = array('status'=>'');
+        try {
+            $result['data'] = DB::table('categories')
+                ->select('id', 'name')
+                ->where('disable', 0)
+                ->where('type', 1)->orderby('date_created','desc')
+                ->where('style', 2)->orderby('date_created','desc')
+                ->get();
+            $result['status'] = 200;
+        } catch(QueryException $e) {
+            $result['status'] = $e->getCode();
+            $result['errMsg'] = $e->getMessage();
+        }
+        return $result;
+    }
     // Lấy những sub_cat thuộc về main_cat của videos hiện có
     public function listcats($main_cat) {
         $result = array('status'=>'');
