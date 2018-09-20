@@ -38,7 +38,7 @@ class NotebookDocumentController extends Controller
                 ->where('document_id', $document_id)
                 ->get();
             $result['data'] = count($notes) > 0;
-    
+
             $result['status'] = 200;
         } catch(QueryException $e) {
             $result['status'] = $e->getCode();
