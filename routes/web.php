@@ -57,12 +57,11 @@ Route::group(['prefix' => 'api'], function () {
 
         Route::get('/notedocument/add/{user_id}/{document_id}', 'bepnha\NotebookDocumentController@addNote');
         Route::get('/notedocument/remove/{user_id}/{document_id}', 'bepnha\NotebookDocumentController@rmNote');
-        Route::get('/notedocument/documents/{user_id}', 'bepnha\NotebookDocumentController@getVideos');
+
         Route::get('/notedocument/check/{user_id}/{document_id}', 'bepnha\NotebookDocumentController@checkNote');
+        Route::get('/notedocument/documents/{user_id}', 'bepnha\NotebookDocumentController@getDocuments');
 
-
-
-
+        Route::get('/note/videosdocuments/{user_id}', 'bepnha\NotebookController@getVideosDocuments');
 
     });
 });
