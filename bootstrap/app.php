@@ -29,7 +29,7 @@ $env = $app->detectEnvironment ( function () {
 	if (getenv ( 'APP_ENV' ) && file_exists ( __DIR__ . '/../.env.' . getenv ( 'APP_ENV' ) )) {
 		$envFile = '.env.' . getenv ( 'APP_ENV' );
 	} else {
-		$envFile = '.env.staging';
+		$envFile = '.env.local';
 	}
 	$dotenv = new Dotenv\Dotenv(__DIR__ . '/../', $envFile);
 	$dotenv->overload();
